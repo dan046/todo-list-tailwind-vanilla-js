@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Todo List Tailwind Vanilla JS" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <script src="script.js" defer></script>
+    <title>Todo List Tailwind Vanilla JS</title>
+  </head>
+  <body
+    class="flex h-screen flex-col justify-between bg-[#0f0812] subpixel-antialiased"
+  >
+    <header class="mx-auto h-10 py-8 font-bold">
+      <h1 class="text-xl text-white md:text-3xl">
+        <span
+          class="bg-gradient-to-r from-green-500 to-green-200 bg-clip-text text-transparent"
+          >Todo List</span
+        >
+        Tailwind Vanilla JS
+      </h1>
+    </header>
+    <main class="mx-auto mb-auto flex flex-col gap-5 p-4">
+      <form
+        action="#"
+        class="flex flex-col items-center gap-2"
+        id="js-todo-form"
+      >
+        <section class="flex flex-col gap-3 sm:flex-row">
+          <input
+            type="text"
+            name="todo-field"
+            id="js-todo-field"
+            placeholder="Add todo"
+            class="rounded-md border-none bg-[#444847] px-4 py-2 text-slate-100 placeholder-slate-100 caret-green-400 outline-none placeholder:italic"
+            required
+          />
+          <input
+            type="text"
+            name="todo-date"
+            id="js-date-field"
+            class="rounded-md border-none bg-[#444847] px-4 py-2 text-slate-100 placeholder-slate-100 outline-none"
+            onfocus="(this.type='date')"
+            onblur="(this.type='text')"
+            placeholder="Please select a date"
+            required
+          />
+
+          <input
+            type="submit"
+            class="cursor-pointer rounded-md border-none bg-[#508b3c] px-3 py-1 font-semibold text-white outline-none transition duration-300 ease-in-out hover:bg-green-600"
+            id="js-add-btn"
+          />
+        </section>
+      </form>
+      <table
+        class="table-auto border-separate border-spacing-2 border border-slate-500 text-white"
+      >
+        <thead class="bg-[#0b1915]">
+          <tr>
+            <th class="text-base font-semibold">Task</th>
+            <th class="text-base font-semibold">Due Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="js-todo-container"></tbody>
+      </table>
+      <p class="js-error"></p>
+    </main>
+    <footer class="flex h-10 items-center pl-5 font-semibold text-white">
+      <small>©️ 2023 Dan</small>
+    </footer>
+  </body>
+</html>
