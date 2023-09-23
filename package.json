@@ -4,5 +4,11 @@
     "postcss": "^8.4.30",
     "prettier-plugin-tailwindcss": "^0.5.4",
     "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "build:css": "postcss src/input.css -o dist/output.css",
+    "watch:css": "postcss src/input.css -o dist/output.css -w",
+    "build:tailwind": "tailwindcss build src/input.css -o dist/output.css",
+    "start": "npm run watch:css"
   }
 }
