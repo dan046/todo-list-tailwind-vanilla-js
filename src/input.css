@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 button,
-h1 {
+h1,
+th {
   user-select: none;
 }
 
