@@ -6,9 +6,8 @@ const sortBtn = document.getElementById("js-sort-btn");
 
 let todoList = JSON.parse(localStorage.getItem("todo-list")) || [];
 
+const errorElement = document.getElementById("js-error");
 function validateForm(task, dueDate) {
-  const errorElement = document.getElementById("js-error");
-
   if (!task && !dueDate) {
     errorElement.innerHTML = "Both fields are empty.";
     return false;
@@ -35,10 +34,18 @@ todoForm.addEventListener("submit", (e) => {
   const dueDate = todoDate.value;
 
   if (validateForm(task, dueDate)) {
-    todoList.push({
-      task,
-      dueDate,
-    });
+    const existing = todoList.findIndex(
+      (item) => item.task === task && item.dueDate === dueDate,
+    );
+
+    if (existing !== -1) {
+      errorElement.innerHTML = "The same task on the same date already exists.";
+    } else {
+      todoList.push({
+        task,
+        dueDate,
+      });
+    }
 
     localStorage.setItem("todo-list", JSON.stringify(todoList));
 
