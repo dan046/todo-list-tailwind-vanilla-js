@@ -4,7 +4,7 @@ const todoField = document.getElementById("js-todo-field");
 const todoDate = document.getElementById("js-date-field");
 const sortBtn = document.getElementById("js-sort-btn");
 
-let todoList = JSON.parse(localStorage.getItem("todo-list")) || [{}];
+let todoList = JSON.parse(localStorage.getItem("todo-list")) || [];
 
 function validateForm(task, dueDate) {
   const errorElement = document.getElementById("js-error");
