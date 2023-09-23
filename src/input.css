@@ -8,6 +8,6 @@ h1 {
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
+  /* opacity: 0; */
   filter: invert(1);
 }

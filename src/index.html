@@ -13,12 +13,12 @@
     class="flex h-screen flex-col justify-between bg-[#0f0812] subpixel-antialiased"
   >
     <header class="mx-auto h-10 py-8 font-bold">
-      <h1 class="text-xl text-white md:text-3xl">
+      <h1 class="divide-x divide-gray-600 text-xl text-white md:text-3xl">
         <span
-          class="bg-gradient-to-r from-green-500 to-green-200 bg-clip-text text-transparent"
+          class="bg-gradient-to-r from-green-500 to-green-200 bg-clip-text pr-3 text-transparent sm:pr-6"
           >Todo List</span
         >
-        Tailwind Vanilla JS
+        <span class="pl-3 sm:pl-6"> Tailwind Vanilla JS </span>
       </h1>
     </header>
     <main class="mx-auto mb-auto flex flex-col gap-5 p-4">
@@ -27,15 +27,17 @@
         class="flex flex-col items-center gap-2"
         id="js-todo-form"
       >
-        <section class="flex flex-col gap-3 sm:flex-row">
+        <section
+          class="flex flex-col items-start gap-3 sm:flex-row sm:items-center"
+        >
           <input
             type="text"
             name="todo-field"
             id="js-todo-field"
             placeholder="Add todo"
             class="rounded-md border-none bg-[#444847] px-4 py-2 text-slate-100 placeholder-slate-100 caret-green-400 outline-none placeholder:italic"
-            required
           />
+
           <input
             type="text"
             name="todo-date"
@@ -44,29 +46,71 @@
             onfocus="(this.type='date')"
             onblur="(this.type='text')"
             placeholder="Please select a date"
-            required
           />
 
-          <input
-            type="submit"
-            class="cursor-pointer rounded-md border-none bg-[#508b3c] px-3 py-1 font-semibold text-white outline-none transition duration-300 ease-in-out hover:bg-green-600"
-            id="js-add-btn"
-          />
+          <div class="relative">
+            <div class="absolute inset-0 rounded-md bg-green-700 blur"></div>
+            <button
+              type="submit"
+              class="relative cursor-pointer rounded-md border-none bg-green-500 px-4 py-2 font-semibold leading-none text-white outline-none transition duration-300 ease-in-out"
+              id="js-add-btn"
+              value="Add"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4.5v15m7.5-7.5h-15"
+                />
+              </svg>
+            </button>
+          </div>
         </section>
       </form>
+
+      <small class="text-sm text-red-700" id="js-error"></small>
+
       <table
-        class="table-auto border-separate border-spacing-2 border border-slate-500 text-white"
+        class="table-auto border-separate border-spacing-2 overflow-hidden rounded-md border border-slate-500 text-white"
       >
         <thead class="bg-[#0b1915]">
           <tr>
+            <th class="text-base font-semibold">isDone</th>
             <th class="text-base font-semibold">Task</th>
-            <th class="text-base font-semibold">Due Date</th>
-            <th></th>
+            <th
+              class="flex items-center justify-center text-base font-semibold"
+            >
+              Date
+              <figure class="cursor-pointer pl-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-4 w-4"
+                  id="js-sort-btn"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
+                  />
+                </svg>
+              </figure>
+            </th>
+            <!-- <th></th> -->
           </tr>
         </thead>
         <tbody id="js-todo-container"></tbody>
       </table>
-      <p class="js-error"></p>
     </main>
     <footer class="flex h-10 items-center pl-5 font-semibold text-white">
       <small>©️ 2023 Dan</small>
